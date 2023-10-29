@@ -5,9 +5,6 @@ import seminars.fourth.weather.WeatherService;
 
 public class Main {
 
-
-
-
     //**
     // 4.3. Предположим, у вас есть класс WeatherService, который имеет метод getCurrentTemperature(),
     // обращающийся к внешнему API для получения информации о текущей температуре.
