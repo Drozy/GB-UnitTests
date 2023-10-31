@@ -1,5 +1,10 @@
 package seminars.fourth.card;
 
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import static org.mockito.Mockito.*;
+
 class PaymentFormTest {
 
     /*
@@ -13,6 +18,16 @@ class PaymentFormTest {
       Вызовите метод `pay()` и убедитесь, что мок-объект вызывает метод `charge()`
      */
 
+    @ParameterizedTest
+    @ValueSource(doubles = {100, 350, 5234.8, 250_000})
+    public void payTest(double amount) {
+        int times = 1;
+        CreditCard card = mock(CreditCard.class);
+        PaymentForm form = new PaymentForm(card);
 
+        form.pay(amount);
+
+        verify(card, times(times)).charge(amount);
+    }
 
 }
