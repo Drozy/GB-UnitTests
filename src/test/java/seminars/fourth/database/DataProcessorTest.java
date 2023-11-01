@@ -15,8 +15,8 @@ class DataProcessorTest {
     void databaseTest() {
         Database database = mock(Database.class);
         DataProcessor dataProcessor = new DataProcessor(database);
-
         when(database.query(anyString())).thenReturn(Arrays.asList("123", "qwe", "ASD"));
+
         List<String> result = dataProcessor.processData("???");
 
         verify(database, times(1)).query("???");
