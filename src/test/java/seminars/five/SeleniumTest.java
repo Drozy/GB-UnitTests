@@ -29,7 +29,7 @@ public class SeleniumTest {
 
         assertThat(seleniumEl.getText()).isEqualTo("https://www.selenium.dev");
 
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         webDriver.quit();
     }
 }
