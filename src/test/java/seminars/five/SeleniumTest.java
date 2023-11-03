@@ -29,7 +29,34 @@ public class SeleniumTest {
 
         assertThat(seleniumEl.getText()).isEqualTo("https://www.selenium.dev");
 
-        Thread.sleep(1000);
+        Thread.sleep(3000);
+        webDriver.quit();
+    }
+
+    /**
+     * Нужно написать сквозной тест с использованием Selenium, который авторизует пользователя
+     * на сайте https://www.saucedemo.com/
+     * Данные для входа
+     * логин: "standart_user"
+     * пароль: "secret_sauce"
+     * Необходимо использовать WebDriver для открытия страницы и методы sendKeys() для ввода
+     * данных в поля формы и submit() для отправки формы.
+     * Проверьте, что на странице отображаются продукты (productsLabel.getText() = "Products")
+     */
+    @Test
+    void authTest() throws InterruptedException {
+        WebDriver webDriver = new ChromeDriver();
+        webDriver.get("https://www.saucedemo.com/");
+        WebElement nameElement = webDriver.findElement(By.name("user-name"));
+        nameElement.sendKeys("standard_user");
+        WebElement passElement = webDriver.findElement(By.name("password"));
+        passElement.sendKeys("secret_sauce");
+        passElement.submit();
+
+        WebElement citeElement = webDriver.findElement(By.className("title"));
+        assertThat(citeElement.getText()).isEqualTo("Products");
+
+        Thread.sleep(3000);
         webDriver.quit();
     }
 }
