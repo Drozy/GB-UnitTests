@@ -1,7 +1,7 @@
 """Тестирование list_comparison"""
 
 import pytest
-import model.list_comparison as lc
+from model import list_comparison as lc
 
 
 def test_find_average_typeerror():

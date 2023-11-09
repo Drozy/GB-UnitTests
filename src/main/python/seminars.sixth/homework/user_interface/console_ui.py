@@ -1,19 +1,15 @@
 """Интерфейс взаимодействия с пользователем"""
-__all__ = ["output", "input_list"]
 
 
-def output(text: str) -> None:
-    """Вывод в консоль"""
-    print(text)
+class ConsoleUI:
+    """Интерфейс взаимодействия с пользователем чререз консоль"""
 
+    @staticmethod
+    def ui_output(text: str) -> None:
+        """Вывод в консоль"""
+        print(text)
 
-def input_list(message: str) -> list:
-    """Ввод списка чисел с клавиатуры"""
-    while True:
-        user_list = input(f"{message}\n").split()
-        try:
-            user_list[:] = list(map(float, user_list))
-            break
-        except ValueError:
-            print("Неверный ввод, попробуйте ещё раз.")
-    return user_list
+    @staticmethod
+    def ui_input(message: str) -> str:
+        """Ввод с клавиатуры"""
+        return input(f"{message}\n")
