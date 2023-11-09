@@ -35,6 +35,7 @@ class Controller:
         return numbers
 
     def start(self):
+        """Получение и сравнение списков"""
         a = self.input_list_numbers("Введите первый список чисел через пробел:")
         b = self.input_list_numbers("Введите второй список чисел через пробел:")
         self.interface.ui_output(list_comparison.compare(a, b))
