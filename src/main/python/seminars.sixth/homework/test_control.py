@@ -6,7 +6,7 @@ from control import Controller
 from user_interface.console_ui import ConsoleUI
 
 
-def test_input_list_numbers():
+def test_input_list_numbers_input_call():
     """Проверка вызова функции ввода"""
     ui = ConsoleUI
     ui.ui_input = MagicMock(name='console_input')
